@@ -1,12 +1,18 @@
 const sketchPad = document.getElementById("sketchPad");
-const grid = document.createElement("div");
-grid.classList.add("grid")
-let gridNum = 0;
+let rowNum = 0;
+let colNum = 0;
 
 
-while (gridNum < 256) {
-    sketchPad.appendChild(grid);
-    console.log("grid")
-    ++gridNum;
-    
+while (rowNum <= 16) {
+    const row = document.createElement("div");
+    row.classList.add("row");
+    sketchPad.appendChild(row);
+    ++rowNum;
+    while (colNum <= 16) {
+        const col = document.createElement("div");
+        col.classList.add("col");
+        row.appendChild(col);
+        ++colNum
+    }
+    colNum = 0;
 }
