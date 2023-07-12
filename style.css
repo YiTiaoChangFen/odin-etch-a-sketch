@@ -49,6 +49,14 @@ button{
     align-items: center;
 }
 
+.action {
+    width: 70px;
+}
+
+.selected {
+    border: 3px solid rgb(62, 130, 231);
+}
+
 #red {
     background-color: red;
 }
