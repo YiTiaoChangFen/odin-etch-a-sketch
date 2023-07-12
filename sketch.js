@@ -56,7 +56,32 @@ function clear() {
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => button.addEventListener("click", select));
 
+let timeoutId = null;
+
 const grids = document.querySelectorAll(".col");
-grids.forEach(grid => grid.addEventListener("click", (e) => {
-    e.target.style.backgroundColor = selectedColor;
+
+// window.addEventListener("mousedown", () => {
+//     grids.forEach(grid => grid.addEventListener("mouseover", () => {
+//         timeoutId = setTimeout(() => {
+//             grid.style.backgroundColor = selectedColor;
+//         }, 50);
+//     }));
+// });
+
+// window.addEventListener("mouseup", () => {
+//     clearTimeout(timeoutId);
+// })
+
+let isMousedown = false;
+window.addEventListener("mousedown", () => {
+    isMousedown = true;
+})
+window.addEventListener("mouseup", () => {
+    isMousedown = false;
+})
+
+grids.forEach(grid => grid.addEventListener("mouseover", () => {
+   if (isMousedown) {
+        grid.style.backgroundColor = selectedColor;
+   }
 }));
